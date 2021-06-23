@@ -9,7 +9,7 @@ use cstudios\embedboards\base\Table;
 /**
  * Install migration.
  */
-class install extends Migration
+class Install extends Migration
 {
     /**
      * @inheritdoc
