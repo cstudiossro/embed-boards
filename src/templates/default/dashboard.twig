@@ -1,0 +1,46 @@
+{% extends "_layouts/cp" %}
+{% import '_includes/forms' as forms %}
+
+{% set title = "Embed Boards"|t('embed-boards') %}
+
+{% block content %}
+    {% for key, config in configs %}
+        <div id="{{ key }}" class="{{ loop.index > 1 ? 'hidden' : '' }}">
+            <h1>{{ config.title }}</h1>
+            <div>
+                {{ config.code | raw }}
+            </div>
+            <hr>
+            <a href="/admin/embed-boards/delete?id={{ config.id }}" class="btn submit">Delete</a>
+        </div>
+    {% endfor %}
+    <div id="add" class="{{ configs ? 'hidden' : '' }}">
+        <h1>Create a new board</h1>
+        <p>Here you can add a new board</p>
+
+        <form method="post">
+
+            {{ csrfInput() }}
+
+            {{ forms.textField({
+                label: 'Board Name'|t('embed-boards'),
+                instructions: 'This will be the name of the board'|t('embed-boards'),
+                name: 'title',
+                value: model.title,
+                autofocus: true,
+            }) }}
+
+            {{ forms.textareaField({
+                label: 'Embed Code'|t('embed-boards'),
+                instructions: 'The HTML code you want to embed'|t('embed-boards'),
+                name: 'code',
+                value: model.code,
+                autofocus: true,
+                rows: 10,
+            }) }}
+
+            <button type="submit" class="btn submit add icon">Add</button>
+        </form>
+    </div>
+
+{% endblock %}

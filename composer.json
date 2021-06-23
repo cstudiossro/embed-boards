@@ -1,0 +1,28 @@
+{
+  "name": "cstudios/embed-boards",
+  "description": "Embed any HTML code into a separate menu.",
+  "type": "craft-plugin",
+  "keywords": ["craft", "embed", "boards", "widgets"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Cstudios s.r.o",
+      "homepage": "https://cstudios.sk"
+    }
+  ],
+  "support": {
+    "email": "gergely@cstudios.ninja"
+  },
+  "require": {
+    "craftcms/cms": "^3.1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "cstudios\\embedboards\\": "src/"
+    }
+  },
+  "extra": {
+    "name": "Embed Boards",
+    "handle": "embed-boards"
+  }
+}

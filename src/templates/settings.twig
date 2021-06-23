@@ -1,0 +1,11 @@
+{% import '_includes/forms' as forms %}
+
+<h1>{{ 'Settings' |t('embed-boards') }}</h1>
+
+{{ forms.textField({
+    label: 'Navigation Item Label'|t('embed-boards'),
+    instructions: 'This input will define the menu items label on the left side in the control panel'|t('embed-boards'),
+    name: 'navItemLabel',
+    value: settings.navItemLabel,
+    autofocus: true,
+}) }}
