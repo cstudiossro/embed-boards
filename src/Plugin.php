@@ -18,7 +18,7 @@ use yii\base\Event;
  */
 class Plugin extends BasePlugin
 {
-    public $hasCpSettings = true;
+    public bool $hasCpSettings = true;
 
     public function init()
     {
@@ -65,7 +65,7 @@ class Plugin extends BasePlugin
     /**
      * @inheritDoc
      */
-    protected function settingsHtml()
+    protected function settingsHtml(): ?string
     {
         return \Craft::$app->getView()->renderTemplate(
             'embed-boards/settings',
@@ -76,7 +76,7 @@ class Plugin extends BasePlugin
     /**
      * @return Settings
      */
-    protected function createSettingsModel()
+    protected function createSettingsModel(): ?\craft\base\Model
     {
        return new Settings();
     }
